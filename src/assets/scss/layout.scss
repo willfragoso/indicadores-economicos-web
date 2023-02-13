@@ -1,0 +1,35 @@
+.app-sidenav-container {
+	height: 100%;
+}
+
+.app-header-toolbar {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+.mat-drawer-container { // Overriding Angular Material CSS Component
+	background-color: rgba(238, 238, 238, 0.93) !important;
+}
+
+.app-menu-list {
+}
+
+.app-menu-list mat-list-option.mat-list-single-selected-option {
+	background: rgba(63, 81, 181, .15) !important;
+	color: #3f51b5 !important;
+}
+
+.app-menu-list mat-list-option.mat-list-single-selected-option:hover {
+	background: rgba(63, 81, 181, .30) !important;
+}
+
+.app-page-container {
+	padding: 25px;
+}
+
+.app-panel-component {
+	border-radius: 5px 5px 5px 5px;
+	padding: 25px;
+	background-color: white;
+}

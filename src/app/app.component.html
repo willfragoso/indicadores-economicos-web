@@ -1,7 +1,116 @@
-<mat-toolbar class="mat-elevation-z1" color="primary">
+<mat-toolbar class="mat-elevation-z3" color="primary">
   <mat-toolbar-row>
-    <div class="app-header-toolbar">
-      <span>Indicadores Econômicos do Banco Mundial</span>
-    </div>
+    <span class="pl-2">Indicadores Econômicos do Banco Mundial</span>
   </mat-toolbar-row>
 </mat-toolbar>
+
+<div class="app-page">
+  <div class="app-page-container">
+    <div class="container-fluid mat-elevation-z3 app-panel-component mb-4">
+      <div class="app-max-width app-page-title mb-4">
+        <span class="app-page-title-span">Pesquisa de Indicador - Índice de Incidência de Pobreza</span>
+      </div>
+      <form #pesquisaIndicadorForm="ngForm">
+        <div class="row">
+          <div class="col-2">
+            <label class="form-label" for="inputCodigoPais">
+              Código do País
+              <span class="app-label-required">*</span>
+            </label>
+            <input #inputCodigoPais="ngModel"
+                   [(ngModel)]="indiceIncidenciaPobrezaFilterDto.codigoPais"
+                   [ngClass]="{ 'is-invalid': pesquisaIndicadorForm.submitted && inputCodigoPais.invalid }"
+                   autocomplete="off"
+                   class="form-control"
+                   id="inputCodigoPais"
+                   maxlength="3"
+                   name="inputCodigoPais"
+                   required
+                   type="text">
+          </div>
+          <div class="col app-form-col-button">
+            <button (click)="pesquisar(true)" color="primary" mat-raised-button>
+              Pesquisar
+            </button>
+            <button (click)="limparPesquisa()" type="reset" mat-raised-button>
+              Limpar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="app-table-component mat-elevation-z3">
+      <div class="app-table-title">
+        Resultado
+      </div>
+      <div class="app-table-container">
+        <table [dataSource]="indiceIncidenciaProbrezaDatasource" class="app-max-width app-table" mat-table>
+          <ng-container matColumnDef="colIdIndicador">
+            <th *matHeaderCellDef mat-header-cell>
+              Id. do Indicador
+            </th>
+            <td *matCellDef="let row" mat-cell>
+              {{row.idIndicador}}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="colNomeIndicador">
+            <th *matHeaderCellDef mat-header-cell>
+              Nome do Indicador
+            </th>
+            <td *matCellDef="let row" mat-cell>
+              {{row.nomeIndicador}}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="colIdPais">
+            <th *matHeaderCellDef mat-header-cell>
+              Id. do País
+            </th>
+            <td *matCellDef="let row" mat-cell>
+              {{row.idPais}}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="colNomePais">
+            <th *matHeaderCellDef mat-header-cell>
+              Nome do País
+            </th>
+            <td *matCellDef="let row" mat-cell>
+              {{row.nomePais}}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="colAno">
+            <th *matHeaderCellDef mat-header-cell>
+              Ano
+            </th>
+            <td *matCellDef="let row" mat-cell>
+              {{row.ano}}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="colValor">
+            <th *matHeaderCellDef mat-header-cell>
+              Valor
+            </th>
+            <td *matCellDef="let row" mat-cell>
+              {{row.valor}}
+            </td>
+          </ng-container>
+          <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+          <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+        </table>
+        <div *ngIf="!indiceIncidenciaProbrezaDatasource || indiceIncidenciaProbrezaDatasource.arrayLength === 0"
+             class="app-table-no-content">
+          Nenhum registro foi encontrado.
+        </div>
+      </div>
+      <mat-paginator [length]="indiceIncidenciaProbrezaDatasource.arrayLength"
+                     [pageSizeOptions]="[10, 25, 50, 100]"
+                     [pageSize]="pageSize"
+                     class="app-table-paginator"
+                     showFirstLastButtons="true">
+      </mat-paginator>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="loading" class="app-cover-spin">
+  <img alt="" src="assets/images/loading.svg"/>
+</div>

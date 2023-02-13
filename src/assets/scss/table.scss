@@ -1,0 +1,79 @@
+.app-table-component {
+	border-radius: 5px 5px 5px 5px;
+	width: 100%;
+}
+
+.app-table-title {
+	padding: 10px 24px;
+	background-color: #3f51b5;
+	color: white;
+	border: 1px solid #3f51b5;
+	border-radius: 5px 5px 0 0;
+	font-size: 18px;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	gap: 15px;
+}
+
+.app-table-title-buttons {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+}
+
+.app-table-container {
+	width: 100%;
+	overflow-x: auto;
+}
+
+.app-table {
+	width: 100% !important;
+	border-collapse: separate !important;
+}
+
+.app-table thead tr.mat-header-row {
+	height: 32px !important;
+	background-color: rgba(63, 81, 181, 0.2) !important;
+}
+
+.app-table thead th.mat-header-cell {
+	color: #3f51b5 !important;
+	font-size: 14px !important;
+}
+
+.app-table tbody tr.mat-row {
+	height: 32px !important;
+}
+
+.app-table-no-content {
+	padding: 25px;
+}
+
+.app-table-paginator {
+	border-radius: 0 0 3px 3px;
+	border-top: 1px solid rgba(0, 0, 0, .12) !important;
+}
+
+.app-table-header-min {
+	width: 1%;
+}
+
+.app-table-row-buttons {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	gap: 10px;
+}
+
+.app-table-sticky-header {
+	background-color: #bcc0e5 !important;
+	border-left: 1px solid rgba(0, 0, 0, .12) !important;
+}
+
+.app-table-sticky-row {
+	background-color: white !important;
+	border-left: 1px solid rgba(0, 0, 0, .12) !important;
+}

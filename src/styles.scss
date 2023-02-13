@@ -3,6 +3,14 @@
 // Material
 @import "@angular/material/prebuilt-themes/indigo-pink.css";
 
+// Bootstrap
+@import "node_modules/bootstrap/scss/bootstrap";
+
+// App Styles
+@import 'assets/scss/common';
+@import 'assets/scss/layout';
+@import 'assets/scss/table';
+
 html, body {
   height: 100%;
 }

@@ -1,0 +1,73 @@
+.app-cover-spin {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-max-width {
+  width: 100%;
+}
+
+.app-max-height {
+  height: 100%;
+}
+
+.app-page {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.app-page-title {
+  border-bottom: 3px solid #3f51b5;
+  padding-bottom: 5px;
+}
+
+.app-page-title-span {
+  font-size: 20px;
+  //color: #3f51b5;
+}
+
+
+.app-checkbox label {
+  white-space: initial !important;
+}
+
+.app-form-col-button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+.app-tooltip {
+  white-space: pre-line;
+}
+
+.app-cursor-pointer {
+  cursor: pointer;
+}
+
+.app-label-required {
+  color: red;
+}
+
+.ng-select {
+  &.is-invalid {
+    .ng-select-container {
+      border-color: #dc3545;
+    }
+  }
+}
+
+.ng-select.ng-select-disabled > .ng-select-container {
+  background-color: #e9ecef !important;
+}
